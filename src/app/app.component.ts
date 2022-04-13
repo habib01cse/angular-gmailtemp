@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, TemplateRef ,OnInit } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { BaseDataService } from './base-data.service';
 @Component({
   selector: 'app-root',
@@ -9,12 +10,18 @@ import { BaseDataService } from './base-data.service';
 })
 export class AppComponent implements OnInit{
   title = 'gmail_temp';
+  sidebarToggle = true;
+  modalRef?: BsModalRef;
   statusId = null;
   catId = null;
   postArr = [];
   postBackupArr = [];
+  item: any = {};
   apiUrl = "https://jsonplaceholder.typicode.com/posts";
-  constructor(private ds: BaseDataService){
+  constructor(
+    private ds: BaseDataService
+    , private modalService: BsModalService
+    ){
 
   }
   ngOnInit(): void {
@@ -67,6 +74,24 @@ export class AppComponent implements OnInit{
     this.postArr = this.postBackupArr.filter( (el: any) =>{
       return el[fieldName] == id;
     })     
+  }
+
+  onClickDetailsDetails(template: TemplateRef<any>) {  
+    console.log('template', template);
+
+    this.modalRef = this.modalService.show(
+      template,
+      Object.assign({}, { class: 'gray modal-lg modal-xlg' })
+    );
+  }
+
+  getDetails(item:any){
+    this.item = item;
+  }
+
+  onClickNavIcon(){
+    this.sidebarToggle = !this.sidebarToggle;
+    console.log('this.sidebarToggle', this.sidebarToggle);
   }
 
 

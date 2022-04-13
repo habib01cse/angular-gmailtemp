@@ -235,3 +235,44 @@
 .gmail-row:hover .gmail-right-action{
     display: block;
 }
+
+.modal-container .modal-xlg{
+    max-width: 1250px!important;
+}
+.is-block{
+    display: block;
+}
+.is-none{
+    display: none;
+}
+.pl-80{
+    padding-left: 80px;
+}
+.short-navbar .top-navbar ul{
+    width: 40px;
+}
+.short-navbar .top-navbar ul li a{
+    padding: 7px 8px 10px 11px;
+    border-radius: 50%;
+}
+.body-section{
+    position: relative;
+}
+.short-navbar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+}
+.short-navbar .com-btn-content{
+    margin: 20px 0;
+}
+.short-navbar .compose-btn{
+    padding: 10px 15px;
+    border-radius: 50%;
+    font-size: 20px;
+}
+.short-navbar .compose-btn .com-btn-icon{
+    margin-right: 0; 
+}
+
